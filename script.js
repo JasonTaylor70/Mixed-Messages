@@ -28,23 +28,26 @@ const statistics = [stat1, stat2, stat3, stat4, stat5, stat6, stat7, stat8, stat
 const rando = Math.floor(Math.random() * 10);
 const rando2 = Math.floor(Math.random() * 10);
 
+const startDialog = () => {
+  let greeting = prompt("Hello friend! What is your name?");
 
-let greeting = prompt("Hello friend! What is your name?");
+  if (!greeting) {
+    alert("Invalid entry!");
+    greeting = prompt("Please enter your name!");
+  }
 
-if (!greeting) {
-  alert("Invalid entry!");
-  greeting = prompt("Please enter your name!");
-}
+  let theQuestion = prompt(`Nice to meet you ${greeting}, would you like some motivation to get your brain thinking before you study?`);
 
-let theQuestion = prompt(`Nice to meet you ${greeting}, would you like some motivation to get your brain thinking before you study?`);
-
-if (theQuestion == undefined || !isNaN(theQuestion)) {
-  alert("Invalid entry!");
-  theQuestion = prompt("Please enter Yes or No!");
-} 
-if (theQuestion.toLowerCase() === "no") {
-  console.log("Have a nice day!");
-} else {
-  console.log("Motivational Quotes: " + quotes[rando]);
-  console.log("Positive E~Learning Statistic: " + statistics[rando2]);
+  if (theQuestion == undefined || !isNaN(theQuestion)) {
+    alert("Invalid entry!");
+    theQuestion = prompt("Please enter Yes or No!");
+  }
+  if (theQuestion.toLowerCase() === "no") {
+    console.log("Have a nice day!");
+  } else {
+    console.log("Motivational Quotes: " + quotes[rando]);
+    console.log("Positive E~Learning Statistic: " + statistics[rando2]);
+  }
 };
+
+startDialog();
